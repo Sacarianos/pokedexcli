@@ -6,8 +6,8 @@ Welcome to the **Pokedex CLI** project! This command-line application, written i
 
 ## **Features**
 
-- **Search Pokémon by Name or ID**  
-  Retrieve detailed information about your favorite Pokémon.
+- **Browse map locations**  
+  Browse over 1000 locations in the pokemon world.
   
 - **Interactive REPL (Read-Eval-Print Loop)**  
   Engage with the Pokedex in an interactive shell environment.
@@ -77,17 +77,9 @@ By the end of this project, you will:
 
 ---
 
-## **Future Enhancements**
-
-- Add support for Pokémon types, abilities, and evolution chains.
-- Include a battle simulation feature.
-- Improve caching strategy to handle expiration.
-
----
-
 ## **Contributing**
 
-Contributions are welcome! Feel free to fork the repository, make improvements, and submit a pull request.
+This is a personal project to learn go, but feel free to clone the repository.
 
 ---
 
