@@ -6,35 +6,46 @@ import (
 	"net/http"
 )
 
-func (c *Client) ListLocationAreas(pageURL *string) (LocationAreasResponse, error) {
-	endpoint := "/location-area"
+func (c *Client) GetPokemon(PokemonName string) (Pokemon, error) {
+	endpoint := "/pokemon/" + PokemonName
 	fullURL := baseURL + endpoint
-	if pageURL != nil {
-		fullURL = *pageURL
+
+	//check the cache
+	data, ok := c.cache.Get(fullURL)
+	if ok {
+		// cache hit
+		PokemonRes := Pokemon{}
+		err := json.Unmarshal(data, &PokemonRes)
+		if err != nil {
+			return Pokemon{}, err
+		}
+		return PokemonRes, nil
 	}
 
 	req, err := http.NewRequest("GET", fullURL, nil)
 	if err != nil {
-		return LocationAreasResponse{}, err
+		return Pokemon{}, err
 	}
 
 	res, err := c.httpClient.Do(req)
 	if err != nil {
-		return LocationAreasResponse{}, err
+		return Pokemon{}, err
 	}
 	defer res.Body.Close()
 
-	data, err := io.ReadAll(res.Body)
+	data, err = io.ReadAll(res.Body)
 	if err != nil {
-		return LocationAreasResponse{}, err
+		return Pokemon{}, err
 	}
 
-	LocationAreasRes := LocationAreasResponse{}
-	err = json.Unmarshal(data, &LocationAreasRes)
+	PokemonRes := Pokemon{}
+	err = json.Unmarshal(data, &PokemonRes)
 	if err != nil {
-		return LocationAreasResponse{}, err
+		return Pokemon{}, err
 	}
 
-	return LocationAreasRes, nil
+	c.cache.Add(fullURL, data)
+
+	return PokemonRes, nil
 
 }

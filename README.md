@@ -1,6 +1,6 @@
 # **Pokedex CLI in Go** 🐾
 
-Welcome to the **Pokedex CLI** project! This command-line application, written in **Golang**, is a tool to explore Pokémon data in an interactive and efficient way. It’s not just about catching ‘em all—it’s about learning Golang concepts like HTTP requests, REPLs, caching, and more while building something fun and useful!
+This project is a Command-Line Interface (CLI) Pokedex built using the Go programming language. It interacts with the Pokémon API (PokeAPI) to fetch data about Pokémon, their locations, abilities, and more. With this project I learned essential Go concepts such as HTTP requests, data parsing, and handling user inputs in a REPL (Read-Eval-Print Loop) environment.
 
 ---
 
@@ -8,6 +8,12 @@ Welcome to the **Pokedex CLI** project! This command-line application, written i
 
 - **Browse map locations**  
   Browse over 1000 locations in the pokemon world.
+
+- **Catch Pokémon**  
+  Simulate catching Pokémon with a random chance based on their base experience.
+
+- **Pokedex**  
+  Display your catch pokemon in your pokedex.
   
 - **Interactive REPL (Read-Eval-Print Loop)**  
   Engage with the Pokedex in an interactive shell environment.
@@ -62,7 +68,12 @@ By the end of this project, you will:
   Run the application and follow the interactive prompts.
 
 - **Available Commands:**  
-  - `search <name|id>`: Find a Pokémon by name or ID.
+  - `map`: Get the next page of locations.
+  - `mapb`: Get the previous page of locations.
+  - `explore`: Get the next page of locations.
+  - `catch`: Attempt to catch a pokemon.
+  - `inspect`: View details about a caught Pokemon.
+  - `pokedex`: See all the pokemon you've caught.
   - `help`: List all available commands.
   - `exit`: Exit the application.
 
